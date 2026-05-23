@@ -35,10 +35,10 @@ bun run agents:update         # Update installed skills
 
 ### Before Creative Work
 
-| Skill             | When                                                                                                                             |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `brainstorming`   | Before building any new feature, component, or functionality. Explores requirements, proposes approaches, produces a design doc. |
-| `stress-test`     | When a design, plan, or decision needs adversarial scrutiny before proceeding.                                                   |
+| Skill           | When                                                                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `brainstorming` | Before building any new feature, component, or functionality. Explores requirements, proposes approaches, produces a design doc. |
+| `stress-test`   | When a design, plan, or decision needs adversarial scrutiny before proceeding.                                                   |
 
 ### Coding & Debugging
 
@@ -47,25 +47,25 @@ bun run agents:update         # Update installed skills
 | `svelte-code-writer`        | **Mandatory** for any Svelte component (.svelte) or Svelte module (.svelte.ts/.svelte.js). Looks up Svelte 5 docs. |
 | `svelte-core-bestpractices` | **Mandatory** for any Svelte work. Covers reactivity, events, styling, library integration.                        |
 | `elysiajs`                  | When creating/editing backend route handlers with Elysia.                                                          |
-| `valibot`                   | When creating or modifying Valibot schemas, validating data, parsing inputs, or migrating from Zod.              |
+| `valibot`                   | When creating or modifying Valibot schemas, validating data, parsing inputs, or migrating from Zod.                |
 | `formisch`                  | When creating forms, handling form state, validating form inputs, or working with Formisch.                        |
 | `test-driven-development`   | When implementing any feature or bugfix, before writing implementation code                                        |
 | `systematic-debugging`      | When encountering any bug, test failure, or unexpected behavior.                                                   |
 
 ### Architecture & Planning
 
-| Skill                           | When                                                                                            |
-| ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `writing-plans`                 | When you have a spec/requirements for multi-step work before touching code.                     |
-| `executing-plans`               | When executing an implementation plan in a separate session with review checkpoints.            |
-| `subagent-driven-development`   | When executing implementation plans with independent tasks in the current session               |
-| `dispatching-parallel-agents`   | When facing 2+ independent tasks that can be worked on without shared state or sequential deps  |
-| `finishing-a-development-branch`| When implementation is complete, all tests pass, and you need to decide how to integrate work  |
+| Skill                            | When                                                                                           |
+| -------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `writing-plans`                  | When you have a spec/requirements for multi-step work before touching code.                    |
+| `executing-plans`                | When executing an implementation plan in a separate session with review checkpoints.           |
+| `subagent-driven-development`    | When executing implementation plans with independent tasks in the current session              |
+| `dispatching-parallel-agents`    | When facing 2+ independent tasks that can be worked on without shared state or sequential deps |
+| `finishing-a-development-branch` | When implementation is complete, all tests pass, and you need to decide how to integrate work  |
 
 ### Project Management
 
-| Skill       | When                                                     |
-| ----------- | -------------------------------------------------------- |
+| Skill                         | When                                                                              |
+| ----------------------------- | --------------------------------------------------------------------------------- |
 | `research-driven-development` | When researching a topic, asking questions, or needing background before planning |
 
 ### Communication
@@ -154,6 +154,7 @@ translations/    # Translation files
 ```
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:7510c1e2 -->
+
 ## Beads Issue Tracker
 
 This project uses **bd (beads)** for issue tracking. Run `bd prime` to see full workflow context and commands.
@@ -195,6 +196,7 @@ bd close <id>         # Complete work
 7. **Hand off** - Provide context for next session
 
 **CRITICAL RULES:**
+
 - Work is NOT complete until `git push` succeeds
 - NEVER stop before pushing - that leaves work stranded locally
 - NEVER say "ready to push when you are" - YOU must push
