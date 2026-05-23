@@ -1,0 +1,54 @@
+---
+# kind-config.yaml
+# Single-node cluster: Cilium CNI + Envoy Gateway API
+# Usage: kind create cluster --config kind-config.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+name: dev
+
+networking:
+  # Disable default CNI — Cilium takes over
+  disableDefaultCNI: true
+  # Disable kube-proxy — Cilium replaces it in eBPF mode
+  kubeProxyMode: none
+  podSubnet: "10.244.0.0/16"
+  serviceSubnet: "10.96.0.0/12"
+
+nodes:
+  - role: control-plane
+    # Port mappings for Envoy Gateway
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 443
+        protocol: TCP
+      # Hubble UI
+      - containerPort: 12000
+        hostPort: 12000
+        protocol: TCP
+    # Required for Cilium eBPF
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+      - |
+        kind: ClusterConfiguration
+        apiServer:
+          extraArgs:
+            # Required for Gateway API admission webhook
+            runtime-config: "api/all=true"
+        controllerManager:
+          extraArgs:
+            # Needed for proper IPAM with Cilium
+            allocate-node-cidrs: "true"
+            cluster-cidr: "10.244.0.0/16"
+
+featureGates:
+  # Ensure Gateway API feature gates are on
+  MixedProtocolLBService: true
+  ServiceNodePortStaticSubRange: true

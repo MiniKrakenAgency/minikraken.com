@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "minikraken_com",
+  "project_id": "b1be7b58-9a72-4ded-8542-c1c767b700e7"
+}
