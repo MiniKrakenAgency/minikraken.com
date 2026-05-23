@@ -38,8 +38,7 @@ bun run agents:update         # Update installed skills
 | Skill             | When                                                                                                                             |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `brainstorming`   | Before building any new feature, component, or functionality. Explores requirements, proposes approaches, produces a design doc. |
-| `grill-me`        | When you have a plan/design and want it stress-tested. I'll interview you until we reach shared understanding.                   |
-| `grill-with-docs` | Same as grill-me but challenges against existing project docs and domain model.                                                  |
+| `stress-test`     | When a design, plan, or decision needs adversarial scrutiny before proceeding.                                                   |
 
 ### Coding & Debugging
 
@@ -50,26 +49,24 @@ bun run agents:update         # Update installed skills
 | `elysiajs`                  | When creating/editing backend route handlers with Elysia.                                                          |
 | `valibot`                   | When creating or modifying Valibot schemas, validating data, parsing inputs, or migrating from Zod.              |
 | `formisch`                  | When creating forms, handling form state, validating form inputs, or working with Formisch.                        |
-| `diagnose`                  | When something is broken, throwing, or performing poorly. Reproduce -> diagnose -> fix -> verify.                  |
-| `tdd`                       | When building features or fixing bugs with tests. Red-green-refactor loop.                                         |
+| `test-driven-development`   | When implementing any feature or bugfix, before writing implementation code                                        |
 | `systematic-debugging`      | When encountering any bug, test failure, or unexpected behavior.                                                   |
 
 ### Architecture & Planning
 
 | Skill                           | When                                                                                            |
 | ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `zoom-out`                      | When unfamiliar with a code section or need broader context.                                    |
-| `improve-codebase-architecture` | When asked to improve architecture, find refactoring opportunities, or make code more testable. |
 | `writing-plans`                 | When you have a spec/requirements for multi-step work before touching code.                     |
 | `executing-plans`               | When executing an implementation plan in a separate session with review checkpoints.            |
+| `subagent-driven-development`   | When executing implementation plans with independent tasks in the current session               |
+| `dispatching-parallel-agents`   | When facing 2+ independent tasks that can be worked on without shared state or sequential deps  |
+| `finishing-a-development-branch`| When implementation is complete, all tests pass, and you need to decide how to integrate work  |
 
 ### Project Management
 
 | Skill       | When                                                     |
 | ----------- | -------------------------------------------------------- |
-| `to-prd`    | Turn conversation context into a PRD.                    |
-| `to-issues` | Break a plan/PRD into independently-grabbable issues.    |
-| `triage`    | Create, triage, or review issues. Manage issue workflow. |
+| `research-driven-development` | When researching a topic, asking questions, or needing background before planning |
 
 ### Communication
 
@@ -81,33 +78,48 @@ bun run agents:update         # Update installed skills
 
 | Skill                            | When                                                                                          |
 | -------------------------------- | --------------------------------------------------------------------------------------------- |
-| `seo-audit`                      | When user mentions SEO, ranking issues, page speed, core web vitals, or "my traffic dropped". |
-| `audit-website`                  | Full website audit (SEO, performance, security, technical, content) with 230+ rules.          |
-| `free-tool-strategy`             | When planning a free tool for marketing/lead gen.                                             |
 | `verification-before-completion` | Before claiming work is complete - run verification commands and confirm output.              |
 | `requesting-code-review`         | After completing tasks or major features, before merging.                                     |
 | `receiving-code-review`          | When receiving code review feedback - verify before implementing suggestions.                 |
+| `write-documentation`            | When writing or substantially rewriting human-facing prose: docs, README, guides, blog posts. |
+| `document-release`               | After code changes are committed but before PR merge to ensure docs match shipped code.       |
+| `getting-up-to-speed`            | At session start, after compaction, or when orienting on unfamiliar codebase.                 |
+| `using-git-worktrees`            | Before starting feature work needing isolation from current workspace.                        |
+| `writing-skills`                 | When creating, editing, or verifying agent skills.                                            |
+| `setup`                          | After installing skills via npx to configure hooks.                                           |
 
 ## Installed Skills (auto-loaded, no need to invoke)
 
 These are installed in `.agents/skills/` and auto-discovered:
 
+- `auditing-upstream-drift` - Check for outdated skills
+- `brainstorming` - Requirements exploration before building
 - `caveman` - Ultra-compressed communication
-- `diagnose` - Disciplined debugging
+- `dispatching-parallel-agents` - Run independent tasks in parallel
+- `document-release` - Sync docs after code changes
 - `elysiajs` - Elysia backend patterns
-- `formisch` - Type-safe form handling with Formisch
-- `grill-me` - Stress-test plans
-- `grill-with-docs` - Challenge against docs
-- `improve-codebase-architecture` - Find refactoring opportunities
-- `setup-matt-pocock-skills` - Initialize agent skills for this repo
+- `executing-plans` - Execute plans with checkpoints
+- `finishing-a-development-branch` - Complete feature work
+- `formisch` - Type-safe form handling
+- `getting-up-to-speed` - Orient on unfamiliar codebase
+- `project-init` - Beads/Dolt initialization
+- `receiving-code-review` - Handle review feedback
+- `requesting-code-review` - Request review after tasks
+- `research-driven-development` - Research topics before planning
+- `setup` - Configure hooks after skill installation
+- `stress-test` - Adversarial plan scrutiny
+- `subagent-driven-development` - Execute independent tasks
 - `svelte-code-writer` - Svelte 5 docs lookup
 - `svelte-core-bestpractices` - Svelte best practices
-- `tdd` - Test-driven development
-- `to-issues` - Break work into issues
-- `to-prd` - Create PRDs
-- `triage` - Issue management
+- `systematic-debugging` - Bug/fix workflow
+- `test-driven-development` - Test-driven development
+- `using-git-worktrees` - Isolated workspace management
+- `using-superpowers` - Skill discovery and usage
 - `valibot` - Schema validation with Valibot
-- `zoom-out` - Broader context
+- `verification-before-completion` - Verify before claiming done
+- `write-documentation` - Write human-facing prose
+- `writing-plans` - Multi-step implementation plans
+- `writing-skills` - Create new agent skills
 
 ## Session Guidelines
 
