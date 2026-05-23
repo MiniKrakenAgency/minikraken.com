@@ -44,3 +44,6 @@ project.inlang/cache/
 .dolt/
 *.db
 .beads-credential-key
+
+# graphify
+/graphify-out
