@@ -1,5 +1,5 @@
-// src/hooks.server.ts
-import { OTEL_KEY, OTEL_DATASET, OTEL_ENDPOINT } from '$env/static/private'
+// Src/hooks.server.ts
+import { OTEL_DATASET, OTEL_ENDPOINT, OTEL_KEY } from '$env/static/private'
 import { NodeSDK } from '@opentelemetry/sdk-node'
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto'
 import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-base'
@@ -16,35 +16,36 @@ const { registerOptions } = createAddHookMessageChannel()
 register('import-in-the-middle/hook.mjs', import.meta.url, registerOptions)
 
 const sdk = new NodeSDK({
-	resourceDetectors: [],
+	instrumentations: [
+		new UndiciInstrumentation({
+			/*IgnoreRequestHook: (request) => {
+				const url = request.path ?? ''
+				return url.startsWith('/_app') || url === '/favicon.ico'
+			}*/
+		})
+	],
 	resource: resourceFromAttributes({
 		[ATTR_SERVICE_NAME]: 'minikraken-dot-com',
 		[ATTR_SERVICE_VERSION]: version,
 		[ATTR_DEPLOYMENT_ENVIRONMENT_NAME]: dev ? 'development' : 'production'
 	}),
+	resourceDetectors: [],
 	spanProcessors: [
 		new BatchSpanProcessor(
 			new OTLPTraceExporter({
-				url: OTEL_ENDPOINT,
 				headers: {
 					Authorization: `Bearer ${OTEL_KEY}`,
 					'X-Axiom-Dataset': OTEL_DATASET
-				}
+				},
+				url: OTEL_ENDPOINT
 			})
 		)
-	],
-	instrumentations: [
-		new UndiciInstrumentation({
-			/*ignoreRequestHook: (request) => {
-				const url = request.path ?? ''
-				return url.startsWith('/_app') || url === '/favicon.ico'
-			}*/
-		})
 	]
 })
 
 sdk.start()
 
 process.on('sveltekit:shutdown', () => {
+	// eslint-disable-next-line unicorn/prefer-await
 	sdk.shutdown().catch(console.error)
 })

@@ -1,54 +1,63 @@
 ---
-# kind-config.yaml
-# Single-node cluster: Cilium CNI + Envoy Gateway API
-# Usage: kind create cluster --config kind-config.yaml
+# kind cluster config — single node, Kubernetes 1.35.1
+# CNI: Cilium (with Hubble observability)
+# Ingress/Gateway: Envoy Gateway (Gateway API)
+# TLS: cert-manager (self-signed, local dev)
+# Metrics: metrics-server
+#
+# HTTP/3 note: Cilium and Envoy Gateway are configured for HTTP/3 readiness
+# (ALPN negotiation, alt-svc headers). Full QUIC/UDP requires the host
+# to expose UDP port 443, which is wired below — but Docker/kind may
+# limit QUIC depending on your OS network stack. Test with:
+#   curl --http3 https://local.test (requires curl built with quiche or ngtcp2)
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 
-name: dev
-
-networking:
-  # Disable default CNI — Cilium takes over
-  disableDefaultCNI: true
-  # Disable kube-proxy — Cilium replaces it in eBPF mode
-  kubeProxyMode: none
-  podSubnet: "10.244.0.0/16"
-  serviceSubnet: "10.96.0.0/12"
+name: local-dev
 
 nodes:
   - role: control-plane
-    # Port mappings for Envoy Gateway
-    extraPortMappings:
-      - containerPort: 80
-        hostPort: 80
-        protocol: TCP
-      - containerPort: 443
-        hostPort: 443
-        protocol: TCP
-      # Hubble UI
-      - containerPort: 12000
-        hostPort: 12000
-        protocol: TCP
-    # Required for Cilium eBPF
+    image: kindest/node:v1.35.1
     kubeadmConfigPatches:
+      # Disable default kube-proxy — Cilium replaces it in eBPF mode
       - |
-        kind: InitConfiguration
-        nodeRegistration:
-          kubeletExtraArgs:
-            node-labels: "ingress-ready=true"
+        kind: KubeProxyConfiguration
+        mode: "none"
       - |
         kind: ClusterConfiguration
         apiServer:
           extraArgs:
-            # Required for Gateway API admission webhook
+            # Required for Gateway API and admission webhooks
             runtime-config: "api/all=true"
         controllerManager:
           extraArgs:
-            # Needed for proper IPAM with Cilium
-            allocate-node-cidrs: "true"
-            cluster-cidr: "10.244.0.0/16"
+            # Reduce leader election noise on single node
+            leader-elect: "false"
+        scheduler:
+          extraArgs:
+            leader-elect: "false"
+    extraPortMappings:
+      # HTTP
+      - containerPort: 30080
+        hostPort: 80
+        protocol: TCP
+      # HTTPS / HTTP2
+      - containerPort: 30443
+        hostPort: 443
+        protocol: TCP
+      # HTTPS over QUIC / HTTP3 (UDP)
+      - containerPort: 30443
+        hostPort: 443
+        protocol: UDP
+    extraMounts:
+      # Share host's /dev/net/tun for Cilium eBPF
+      - hostPath: /dev/net/tun
+        containerPath: /dev/net/tun
 
-featureGates:
-  # Ensure Gateway API feature gates are on
-  MixedProtocolLBService: true
-  ServiceNodePortStaticSubRange: true
+networking:
+  # Disable kind's default CNI — Cilium takes over
+  disableDefaultCNI: true
+  # kube-proxy is replaced by Cilium's eBPF implementation
+  kubeProxyMode: 'none'
+  podSubnet: '10.244.0.0/16'
+  serviceSubnet: '10.96.0.0/12'

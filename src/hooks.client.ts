@@ -1,5 +1,5 @@
 import type { HandleClientError } from '@sveltejs/kit'
-/*import posthog from 'posthog-js'
+/*Import posthog from 'posthog-js'
 
 posthog.init('<posthog-key>', {
 	api_host: 'https://eu.i.posthog.com',
@@ -9,13 +9,13 @@ posthog.init('<posthog-key>', {
 
 posthog.capture('page-loaded', { property: 'value' })*/
 
-//export const init: ClientInit = () => {}
+//Export const init: ClientInit = () => {}
 
 export const handleError: HandleClientError = async ({ message }) => {
 	const errorId = crypto.randomUUID()
 
 	return {
-		message: message ?? 'Whoops!',
-		errorId: errorId
+		errorId,
+		message: message ?? 'Whoops!'
 	}
 }

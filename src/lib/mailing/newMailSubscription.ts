@@ -1,6 +1,6 @@
 import { Resend } from '$lib/mailing/resend'
 
-export type MailProperties = {
+export interface MailProperties {
 	client: {
 		email: string
 		name: string
@@ -11,13 +11,14 @@ export type MailProperties = {
 
 export const newMailSubscription = async ({ client: { email } }: MailProperties) => {
 	const { data, error } = await Resend.contacts.create({
-		email: email,
-		unsubscribed: false,
-		audienceId: 'a844d1b1-40ae-474a-9042-3a56d50f1329'
+		audienceId: 'a844d1b1-40ae-474a-9042-3a56d50f1329',
+		email,
+		unsubscribed: false
 	})
 
 	if (error) {
-		return console.error({ error })
+		console.error({ error })
+		return
 	}
 
 	console.log({ data })

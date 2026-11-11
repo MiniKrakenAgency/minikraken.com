@@ -15,7 +15,7 @@ const socials = [
 		label: 'Instagram'
 	},
 	{
-		href: 'http://www.youtube.com/@MiniKrakenIT',
+		href: 'https://www.youtube.com/@MiniKrakenIT',
 		icon: Youtube,
 		label: 'Youtube'
 	},

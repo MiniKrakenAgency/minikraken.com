@@ -10,7 +10,7 @@
 	 */
 	export type LoadingSizes = Size.xs | Size.sm | Size.md | Size.lg | Size.xl
 
-	export type Props = {
+	export interface Props {
 		show?: boolean
 		class?: string
 		size?: ResponsiveProperty<LoadingSizes>

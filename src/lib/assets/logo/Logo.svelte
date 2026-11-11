@@ -1,29 +1,28 @@
 <script lang="ts">
 	import { LogoAnimation } from '$lib/motion/logo'
-	import type { ResolvedPathname } from '$app/types'
+	import { resolve } from '$app/paths'
+	import { localizeHref } from '$paraglide/runtime'
 
-	type Props = {
-		href: ResolvedPathname
+	interface Props {
 		color?: string
 		small?: boolean
 	}
 
-	const { href, color = '#101010', small = false }: Props = $props()
+	const { color = '#101010', small = false }: Props = $props()
 
 	let hoverState = $state(false)
 
 	const hoverEvent = () => {
-		hoverState = true
-	}
-
-	const hoverEndEvent = () => {
-		hoverState = false
-	}
+			hoverState = true
+		},
+		hoverEndEvent = () => {
+			hoverState = false
+		}
 </script>
 
 <a
 	aria-label="Home"
-	{href}
+	href={resolve(localizeHref('/'))}
 	class="flex items-center"
 	onmouseenter={hoverEvent}
 	onmouseleave={hoverEndEvent}

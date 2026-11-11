@@ -12,6 +12,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.agents" />
       <excludeFolder url="file://$MODULE_DIR$/.claude" />
+      <excludeFolder url="file://$MODULE_DIR$/.understand-anything" />
+      <excludeFolder url="file://$MODULE_DIR$/.opencode" />
+      <excludeFolder url="file://$MODULE_DIR$/.serena" />
+      <excludeFolder url="file://$MODULE_DIR$/.codegraph" />
+      <excludeFolder url="file://$MODULE_DIR$/.omo" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

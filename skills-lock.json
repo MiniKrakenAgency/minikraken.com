@@ -1,35 +1,17 @@
 {
 	"version": 1,
 	"skills": {
-		"auditing-upstream-drift": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/auditing-upstream-drift/SKILL.md",
-			"computedHash": "a48daed3920e0fcf346a7fa99dcafb103118c0a8a725bbf621060de7ebfa0244"
-		},
 		"brainstorming": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/brainstorming/SKILL.md",
-			"computedHash": "26a8d9a69750efa926ff56b0403521a4b42d0c6e77700f43dcad49e0078eb271"
-		},
-		"caveman": {
-			"source": "juliusbrussee/caveman",
-			"sourceType": "github",
-			"skillPath": "skills/caveman/SKILL.md",
-			"computedHash": "dfbf85749fd474feeb0bbe60c779795ecd5dbec0083299b56e68916bc3ddd8c9"
+			"computedHash": "b58d55b64742ecd37923985ec7bdfbe678ffbcb9895562abd28c0a32dcacd7fb"
 		},
 		"dispatching-parallel-agents": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/dispatching-parallel-agents/SKILL.md",
-			"computedHash": "c916324ef46dad6b7a245e569f082920cd730391649a8f1a29bb40dd062184d2"
-		},
-		"document-release": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/document-release/SKILL.md",
-			"computedHash": "e26d386075ea5c4c4cf4b76e4cda20877f7d5ffb2f5409dbb9bdab2118073daf"
+			"computedHash": "b011107f17188e0b2898bb1856b5bac8b49537cc86e737c82126558a235bd62a"
 		},
 		"elysiajs": {
 			"source": "elysiajs/skills",
@@ -38,70 +20,34 @@
 			"computedHash": "55268e69a2c766ed67e56a0db57544f60cc52dba0c7f024a974baf965e525e1b"
 		},
 		"executing-plans": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/executing-plans/SKILL.md",
-			"computedHash": "44c428f5c1afeb040ed473d1b8256866a4fdb034eadae22e11aa51d864751080"
+			"computedHash": "78a07800ee99a5861ae10be59d79fad085fdca10444e8aaeb2691597e357cff8"
 		},
 		"finishing-a-development-branch": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/finishing-a-development-branch/SKILL.md",
-			"computedHash": "56c5ec95aedcd7a18267be97e8cfdf78811c9b4830462d887245c7fe586d86e2"
-		},
-		"formisch": {
-			"source": "open-circle/agent-skills",
-			"sourceType": "github",
-			"skillPath": "skills/formisch/SKILL.md",
-			"computedHash": "3920325909e35e888d752fd756c31e9b26b2fc66ba0bdb456f67ad8101d87485"
-		},
-		"getting-up-to-speed": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/getting-up-to-speed/SKILL.md",
-			"computedHash": "05dcfdbb49b151389bb4abf949d9e2a49dff1a376475bac4462b6648a39d7d02"
-		},
-		"project-init": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/project-init/SKILL.md",
-			"computedHash": "c3821a390c4fee431cb949e8135df64346245f4b41a6fb47a3557a98cfd2cc5b"
+			"computedHash": "4f571e7befb8b0946d9d7770232c818812412e9ab1dfb811f847edfba1fc6275"
 		},
 		"receiving-code-review": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/receiving-code-review/SKILL.md",
-			"computedHash": "f12307e1909833d75ed456285a01fc37a57e90dff474068d43802df468784cc0"
+			"computedHash": "59361179fc9225173e0c145ffd9bafbf9fdbf8b43ce3dc308497a0b4f83a6063"
 		},
 		"requesting-code-review": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/requesting-code-review/SKILL.md",
-			"computedHash": "901b0ac7b5cd3a0515ae89e7a86826e542dafde5814fd6ed627769c47f16a34c"
-		},
-		"research-driven-development": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/research-driven-development/SKILL.md",
-			"computedHash": "a8528128d31b966e78c3442ec6cbaa9f79b16736fb23f812a3c9f080845b9f57"
-		},
-		"setup": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/setup/SKILL.md",
-			"computedHash": "9ae2232a8f7433a08ba6e5d1aaffcabd5a244c09f5646581ff15ed63678fd121"
-		},
-		"stress-test": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/stress-test/SKILL.md",
-			"computedHash": "53e51f151f405990db6ffe1c0d4de06c691ad909607551dc306c3927db205a3e"
+			"computedHash": "004f340ae65811095d6a9bb0a759c87d0a8085c5e705dbb019b011626293d2e9"
 		},
 		"subagent-driven-development": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/subagent-driven-development/SKILL.md",
-			"computedHash": "1c14a2e3201601165aec857f8c1720746f0415bd378a0e71c1b0ce404ddda11c"
+			"computedHash": "367cc1d3216d6672b947c8c6583dbd6440ea407beb6da75a97d3a8ee1a23640a"
 		},
 		"svelte-code-writer": {
 			"source": "sveltejs/ai-tools",
@@ -116,28 +62,28 @@
 			"computedHash": "bec11e369679027edf9d4acbe6d9788f8da33dc14b48b874f231d3ba13705324"
 		},
 		"systematic-debugging": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/systematic-debugging/SKILL.md",
-			"computedHash": "fda6a950b7ec47969a951b60d9f6b9d1b09d65e323a7969288cbd981ca30a468"
+			"computedHash": "a2750dfbaed1690da73b120254892c4f926b4576cb82eb16fc877783941fe39b"
 		},
 		"test-driven-development": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/test-driven-development/SKILL.md",
-			"computedHash": "967f718d426c3c2dd6d8a4e1d1f9ad67939e3fc630e50a48a1cad4cdaee89352"
+			"computedHash": "a4126a9c5f17be3c228aa9e5755898ade283448b86099f56f40852e8c14532be"
 		},
 		"using-git-worktrees": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/using-git-worktrees/SKILL.md",
-			"computedHash": "5e09558a0a95fe1719d11de6e478ae09fa102a7325626c8e5ccbbe183c575b09"
+			"computedHash": "48c8a1040e378e0cb7208107294e3afa9067b9370c3f33b49a443eb6b7528b0d"
 		},
 		"using-superpowers": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/using-superpowers/SKILL.md",
-			"computedHash": "81c2c6dd51c8dc28f5d09b24f0c150ec1cd9120821351d221fd1904ae2c1fe29"
+			"computedHash": "c7abe8bdc2099bbe4f245454d32c7563ccd2bb41dcc218b02b461c2acc3c6ae6"
 		},
 		"valibot": {
 			"source": "open-circle/agent-skills",
@@ -146,28 +92,22 @@
 			"computedHash": "6798b923c1bbe9b07cb8c40470ada09c377d666045caefda90d95577e16e8744"
 		},
 		"verification-before-completion": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/verification-before-completion/SKILL.md",
-			"computedHash": "baffbcfd0de1bce6db56df96a62761800b3e408bba591f4e1f12bcd59407c331"
-		},
-		"write-documentation": {
-			"source": "DollarDill/beads-superpowers",
-			"sourceType": "github",
-			"skillPath": "skills/write-documentation/SKILL.md",
-			"computedHash": "c441d1a8aed3ea4808de8f4708bfffdbdf635e5cbec6c865b7fbfde632ddfc72"
+			"computedHash": "b529822bdac4b197b180fe12225cff86b930b65910435103c10622df7f041651"
 		},
 		"writing-plans": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/writing-plans/SKILL.md",
-			"computedHash": "cc22867ea1e635545b19dd51657c92ea84ef17b8418c94c718dec7de4e14ab88"
+			"computedHash": "27c75044e444a4fc68798c3f799dc23eaff3a6bfabff32e6ad75bb20f881c094"
 		},
 		"writing-skills": {
-			"source": "DollarDill/beads-superpowers",
+			"source": "obra/superpowers",
 			"sourceType": "github",
 			"skillPath": "skills/writing-skills/SKILL.md",
-			"computedHash": "8263f46e6f529891ae1af55a742194ff64a45fd5e88eb5dc34464dd061092114"
+			"computedHash": "e5dfc1a942f56dc757421b0d87ae1f38ab693ebc71138e65268fd408bb5c93d3"
 		}
 	}
 }

@@ -1,15 +1,15 @@
 <script module lang="ts">
-	export enum Modifier {
-		OPEN = 'open'
-	}
+	export const Modifier = {
+		OPEN: 'open'
+	} as const
 
-	export enum Placement {
-		TOP = 'top',
-		MIDDLE = 'middle',
-		BOTTOM = 'bottom',
-		START = 'start',
-		END = 'end'
-	}
+	export const Placement = {
+		BOTTOM: 'bottom',
+		END: 'end',
+		MIDDLE: 'middle',
+		START: 'start',
+		TOP: 'top'
+	} as const
 </script>
 
 <script lang="ts">
@@ -18,8 +18,8 @@
 
 	type Props = {
 		open?: boolean
-		modifier?: Modifier
-		placement?: Placement
+		modifier?: typeof Modifier
+		placement?: typeof Placement
 		actions: Snippet
 		trigger: Snippet
 		children: Snippet
@@ -27,16 +27,15 @@
 	} & HTMLDialogElement
 
 	let {
-		open = false,
-		modifier,
-		placement,
-		actions,
-		trigger,
-		children,
-		class: classOverwrite
-	}: Props = $props()
-
-	let modal: HTMLDialogElement
+			open = false,
+			modifier,
+			placement,
+			actions,
+			trigger,
+			children,
+			class: classOverwrite
+		}: Props = $props(),
+		modal: HTMLDialogElement
 	const classes = $derived([
 		'modal',
 		placement && `modal-${placement}`,

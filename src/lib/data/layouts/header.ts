@@ -3,22 +3,22 @@ import { m } from '$paraglide/messages'
 export const navigation = [
 	[
 		{
-			page: '/realisations',
-			label: m.nav_realisations()
+			label: m.nav_realisations(),
+			page: '/realisations'
 		},
 		{
-			page: '/process',
-			label: m.nav_our_process()
+			label: m.nav_our_process(),
+			page: '/process'
 		}
 	],
 	[
 		{
-			page: '/about',
-			label: m.nav_about_us()
+			label: m.nav_about_us(),
+			page: '/about'
 		},
 		{
-			page: '/blog',
-			label: m.nav_blog()
+			label: m.nav_blog(),
+			page: '/blog'
 		}
 	]
 ] as const

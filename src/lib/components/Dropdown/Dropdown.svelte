@@ -1,21 +1,21 @@
 <script module lang="ts">
-	export enum Alignment {
-		start = 'start',
-		center = 'center',
-		end = 'end'
-	}
+	export const Alignment = {
+		center: 'center',
+		end: 'end',
+		start: 'start'
+	} as const
 
-	export enum Placement {
-		top = 'top',
-		left = 'left',
-		right = 'right',
-		bottom = 'bottom'
-	}
+	export const Placement = {
+		bottom: 'bottom',
+		left: 'left',
+		right: 'right',
+		top: 'top'
+	} as const
 
-	export enum Modifier {
-		hover = 'hover',
-		open = 'open'
-	}
+	export const Modifier = {
+		hover: 'hover',
+		open: 'open'
+	} as const
 
 	export interface ListAnchor {
 		text: string
@@ -36,52 +36,50 @@
 </script>
 
 <script lang="ts">
-	import { nanoid } from 'nanoid/non-secure'
+	import { nopeid } from 'nope-id/non-secure'
 	import type { Snippet } from 'svelte'
-	import { resolve } from '$app/paths'
 
-	type Props = {
+	interface Props {
 		id?: string
-		/*modifier?: Modifier
+		/*Modifier?: Modifier
 		placement?: Placement
 		alignment?: Alignment
 		class?: string*/
 		children: Snippet
 	}
 
-	let {
-		id = nanoid(5),
-		/*modifier,
+	const {
+			id = nopeid(5),
+			/*Modifier,
 	placement,
 	alignment,
 	class: styleClasses,
 	...rest*/ children
-	}: Props = $props()
-
-	let list: ListItems = [
-		{
-			text: 'Item 1',
-			href: '#'
-		},
-		{
-			text: 'Item 2',
-			href: '#'
-		},
-		{
-			text: 'Item 3',
-			clickHandler: () => {
-				console.log('Item 3 clicked')
+		}: Props = $props(),
+		list: ListItems = [
+			{
+				href: '#',
+				text: 'Item 1'
+			},
+			{
+				href: '#',
+				text: 'Item 2'
+			},
+			{
+				clickHandler: () => {
+					console.log('Item 3 clicked')
+				},
+				text: 'Item 3'
+			},
+			{
+				href: '#',
+				text: 'Item 4'
+			},
+			{
+				href: '#',
+				text: 'Item 5'
 			}
-		},
-		{
-			text: 'Item 4',
-			href: '#'
-		},
-		{
-			text: 'Item 5',
-			href: '#'
-		}
-	]
+		]
 </script>
 
 {#snippet listItemButton(item: ListButton)}
@@ -91,7 +89,7 @@
 {/snippet}
 
 {#snippet listItemAnchor(item: ListAnchor)}
-	<a href={resolve(item.href)}>
+	<a href={item.href}>
 		{item.text}
 	</a>
 {/snippet}

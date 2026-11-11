@@ -33,7 +33,7 @@ export enum Shape {
 	circle = 'circle'
 }
 
-//todo: something else is needed here
+//Todo: something else is needed here
 export enum Behavior {
 	hover = 'hover'
 }

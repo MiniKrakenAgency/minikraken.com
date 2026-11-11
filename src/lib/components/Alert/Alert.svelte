@@ -84,7 +84,7 @@
 	<span>we use cookies for no reason.</span>
 	<div>
 		<button class="btn btn-sm">Deny</button>
-		<button class="btn btn-sm btn-primary">Accept</button>
+		<button class="btn btn-primary btn-sm">Accept</button>
 	</div>
 </div>
 

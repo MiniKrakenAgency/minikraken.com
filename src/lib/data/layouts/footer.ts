@@ -3,49 +3,49 @@ import { m } from '$paraglide/messages'
 
 export const footer = [
 	{
-		sectionName: 'Company',
 		items: [
 			{
-				page: '/about',
-				label: m.nav_about_us()
+				label: m.nav_about_us(),
+				page: '/about'
 			},
 			{
-				page: '/process',
-				label: m.nav_our_process()
+				label: m.nav_our_process(),
+				page: '/process'
 			},
 			{
-				page: '/blog',
-				label: m.nav_blog()
+				label: m.nav_blog(),
+				page: '/blog'
 			},
 			{
-				page: '/contact',
-				label: m.nav_contact_button()
+				label: m.nav_contact_button(),
+				page: '/contact'
 			}
-		]
+		],
+		sectionName: 'Company'
 	},
 	{
-		sectionName: 'Links',
 		items: [
 			{
-				page: '/legal/cookie-policy',
-				label: m.legal_cookie_policy_name()
+				label: m.legal_cookie_policy_name(),
+				page: '/legal/cookie-policy'
 			},
 			{
-				page: '/legal/privacy-policy',
-				label: m.legal_privacy_policy_name()
+				label: m.legal_privacy_policy_name(),
+				page: '/legal/privacy-policy'
 			},
 			{
-				page: '/legal/terms-of-service',
-				label: m.legal_terms_of_service_name()
+				label: m.legal_terms_of_service_name(),
+				page: '/legal/terms-of-service'
 			},
 			{
-				page: '/sitemap.xml',
-				label: 'Sitemap'
+				label: 'Sitemap',
+				page: '/sitemap.xml'
 			}
-		]
+		],
+		sectionName: 'Links'
 	},
 	{
-		sectionName: 'Connect',
-		items: socials
+		items: socials,
+		sectionName: 'Connect'
 	}
 ] as const

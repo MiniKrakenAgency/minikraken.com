@@ -1,6 +1,5 @@
 <script module lang="ts">
-	import { Behavior } from '$components/properties'
-	import { Color } from '$components/properties'
+	import { Behavior, Color } from '$components/properties'
 	import type { ResponsiveProperty } from '$components/types'
 	import type { Snippet } from 'svelte'
 	import type { HTMLAnchorAttributes } from 'svelte/elements'
@@ -27,14 +26,12 @@
 
 <script lang="ts">
 	import { tpm } from '$components/utils/transformPseudoModifiers'
-	import { resolve } from '$app/paths'
 
-	const { href, color, behavior, children, class: classValue, ...rest }: Props = $props()
-
-	const classes = $derived(['link', tpm('link', color), tpm('link', behavior), classValue])
+	const { href, color, behavior, children, class: classValue, ...rest }: Props = $props(),
+		classes = $derived(['link', tpm('link', color), tpm('link', behavior), classValue])
 </script>
 
-<a href={resolve(href)} class={classes} {...rest}>
+<a href={href ?? undefined} class={classes} {...rest}>
 	{@render children()}
 </a>
 

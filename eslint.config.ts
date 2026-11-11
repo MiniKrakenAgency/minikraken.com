@@ -1,4 +1,3 @@
-import prettier from 'eslint-config-prettier'
 import path from 'node:path'
 import { includeIgnoreFile } from '@eslint/compat'
 import js from '@eslint/js'
@@ -17,8 +16,6 @@ export default defineConfig(
 	ts.configs.recommended,
 	eslintPluginUnicorn.configs.recommended,
 	svelte.configs.recommended,
-	prettier,
-	svelte.configs.prettier,
 	{
 		rules: {
 			'unicorn/filename-case': [
@@ -31,11 +28,12 @@ export default defineConfig(
 					}
 				}
 			],
-			'unicorn/prevent-abbreviations': [
+			'unicorn/no-top-level-assignment-in-function': 'warn',
+			'unicorn/name-replacements': [
 				'error',
 				{
-					allowList: {
-						Props: true
+					replacements: {
+						props: false
 					}
 				}
 			],

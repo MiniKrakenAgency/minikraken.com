@@ -2,36 +2,36 @@ import type { Config } from 'release-it'
 
 export default {
 	git: {
-		commitMessage: 'Release v${version}',
 		commit: true,
-		tag: true,
+		commitMessage: 'Release v${version}',
 		push: true,
+		tag: true,
 		tagName: 'v${version}'
 	},
 	github: {
-		release: true,
-		releaseName: 'v${version}',
+		autoGenerate: true,
 		makeLatest: true,
-		autoGenerate: true
+		release: true,
+		releaseName: 'v${version}'
 	},
 	npm: {
 		publish: false
 	},
 	plugins: {
-		'@release-it/conventional-changelog': {
-			preset: {
-				name: 'angular'
-			},
-			infile: 'CHANGELOG.md'
-		},
 		'@j-ulrich/release-it-regex-bumper': {
 			out: [
 				{
 					file: '.deployment/app/deployment.yaml',
-					search: String.raw`v\d+\.\d+\.\d+`,
-					replace: 'v{{versionWithoutPrerelease}}'
+					replace: 'v{{versionWithoutPrerelease}}',
+					search: String.raw`v\d+\.\d+\.\d+`
 				}
 			]
+		},
+		'@release-it/conventional-changelog': {
+			infile: 'CHANGELOG.md',
+			preset: {
+				name: 'angular'
+			}
 		}
 	}
 } satisfies Config

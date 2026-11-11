@@ -17,8 +17,8 @@ export const services = [
 	'IT Audit'
 ] as const
 
-// highlight sections
-// interne tools (
+// Highlight sections
+// Interne tools (
 // Infrastructuur (onderhoud, setup nieuwe infra, netwerk en beveiliging)
 //
 // Advies op Maat

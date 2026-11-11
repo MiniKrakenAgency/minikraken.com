@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.8-alpine AS base
+FROM oven/bun:1.4.0-distroless AS base
 WORKDIR /usr/src/app
 LABEL authors="maximehuylebroeck"
 ENV PORT=3000
